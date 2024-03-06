@@ -20,10 +20,8 @@ jobs:
         java-version: '11'
     
     - name: Change directory
-      run: cd SQ && ls
+      run: cd SQ && ls && mvnw -B verify --file pom.xml
 
-    - name: Build with Maven
-      run: mvnw -B verify --file pom.xml
 
   test:
     runs-on: ubuntu-latest
