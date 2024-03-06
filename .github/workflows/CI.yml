@@ -20,7 +20,7 @@ jobs:
         java-version: '11'
     
     - name: Change directory
-      run: cd SQ
+      run: cd SQ/SQ
     
     - name: List
       run: ls
