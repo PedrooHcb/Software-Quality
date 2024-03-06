@@ -18,7 +18,13 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '11'
-      
+    
+    - name: Change directory
+      run: cd SQ
+    
+    - name: List
+      run: ls
+
     - name: Build with Maven
       run: ./mvnw -B verify --file pom.xml
 
