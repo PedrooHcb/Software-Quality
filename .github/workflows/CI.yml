@@ -20,7 +20,7 @@ jobs:
         java-version: '11'
     
     - name: Change directory
-      run: cd SQ && ls && ./mvnw.cmd -B verify --file pom.xml
+      run: cd SQ && ls && chmod +x mvnw && ./mvnw.cmd -B verify --file pom.xml
 
 
   test:
