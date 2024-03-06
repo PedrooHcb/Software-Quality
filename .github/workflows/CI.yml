@@ -17,10 +17,10 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: '11'
+        java-version: '17'
     
-    - name: Change directory
-      run: cd SQ && ls && chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+    - name: Change directory && Set permissions && Build Maven
+      run: cd SQ && chmod 777 mvnw && ./mvnw -B verify --file pom.xml
 
 
   test:
