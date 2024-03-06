@@ -19,8 +19,8 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     
-    - name: Make Maven Wrapper executable
-      run: chmod +x mvnw
+    - name: Change to SQ directory
+      run: cd SQ
       
     - name: Build with Maven
       run: |
