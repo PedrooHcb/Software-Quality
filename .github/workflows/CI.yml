@@ -22,7 +22,7 @@ jobs:
       #&& chmod 777 mvnw && ./mvnw -B verify --file pom.xml
 
     - name: Set permissions
-      run: chmod 777 mvnw
+      run: chmod 777 ./mvnw
 
     - name: Build Maven
       run: ./mvnw -B verify --file pom.xml
