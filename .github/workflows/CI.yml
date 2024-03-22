@@ -18,13 +18,13 @@ jobs:
         java-version: '17'
     
     - name: Change directory && Set permissions && Build Maven
-      run: cd SQ #&& chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+      run: cd SQ && chmod 777 mvnw && ./mvnw -B verify --file pom.xml
 
-    - name: Set permissions
-      run: chmod 777 /mvnw
+    # - name: Set permissions
+    #   run: chmod 777 ./mvnw
 
-    - name: Build Maven
-      run: ./mvnw -B verify --file pom.xml
+    # - name: Build Maven
+    #   run: ./mvnw -B verify --file pom.xml
   test:
     runs-on: ubuntu-latest
 
