@@ -1,0 +1,3 @@
+com.SoftQual.SQ.ServletInitializer#configure(Lorg/springframework/boot/builder/SpringApplicationBuilder;)Lorg/springframework/boot/builder/SpringApplicationBuilder;
+==
+sources org.springframework.boot.builder.SpringApplicationBuilder#sources([Ljava/lang/Class;)Lorg/springframework/boot/builder/SpringApplicationBuilder;

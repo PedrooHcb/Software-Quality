@@ -18,7 +18,7 @@ jobs:
         java-version: '17'
     
     - name: Change directory && Set permissions && Build Maven
-      run: cd SQ && chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+      run: chmod 777 mvnw && ./mvnw -B verify --file pom.xml
 
     # - name: Set permissions
     #   run: chmod 777 ./mvnw
@@ -41,4 +41,4 @@ jobs:
         java-version: '17'
 
     - name: Run tests
-      run: cd SQ && chmod 777 mvnw && ./mvnw test --file pom.xml
+      run: chmod 777 mvnw && ./mvnw test --file pom.xml
