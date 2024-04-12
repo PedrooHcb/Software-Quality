@@ -22,7 +22,7 @@ public class IndexController {
 
   @SuppressWarnings("null")
   @GetMapping(value = { "/", "/index" })
-  public ResponseEntity<Resource> index() throws IOException {
+  public ResponseEntity<Resource> index() {
     Resource resource = new ClassPathResource("static/index.html");
     return ResponseEntity.ok()
         .contentType(MediaType.TEXT_HTML)
