@@ -1,0 +1,12 @@
+§
++com.SoftQual.SQ.Controllers.IndexController?
+<init>5com.SoftQual.SQ.Controllers.IndexController#<init>()Vk
+	calculate^com.SoftQual.SQ.Controllers.IndexController#calculate(DDLjava/lang/String;Ljava/lang/Double;)De
+index\com.SoftQual.SQ.Controllers.IndexController#index()Lorg/springframework/http/ResponseEntity;N
+mainFcom.SoftQual.SQ.Controllers.IndexController#main([Ljava/lang/String;)Vjava.lang.Object‹
+"com.SoftQual.SQ.ServletInitializer6
+<init>,com.SoftQual.SQ.ServletInitializer#<init>()V≤
+	configure§com.SoftQual.SQ.ServletInitializer#configure(Lorg/springframework/boot/builder/SpringApplicationBuilder;)Lorg/springframework/boot/builder/SpringApplicationBuilder;Iorg.springframework.boot.web.servlet.support.SpringBootServletInitializer¶
+com.SoftQual.SQ.SqApplication1
+<init>'com.SoftQual.SQ.SqApplication#<init>()V@
+main8com.SoftQual.SQ.SqApplication#main([Ljava/lang/String;)Vjava.lang.Object
