@@ -26,10 +26,11 @@ jobs:
         #   run: ./mvnw -B verify --file pom.xml
             - name: Check Code Formatting
               run: |
-                npx prettier . --write
+                
+                sudo npx prettier . --write
             - name: Check Code Formatting
               run: |
-                npx prettier . --check
+                sudo npx prettier . --check
     test:
         runs-on: ubuntu-latest
 
