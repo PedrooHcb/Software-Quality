@@ -27,9 +27,7 @@ jobs:
             - name: Check Code Formatting
               run: chmod +x node_modules/.bin/prettier && sudo npx prettier . --write
             - name: Check Code Formatting
-              run: chmod +x node_modules/.bin/prettier.cmd && sudo npx prettier . --write
-            - name: Check Code Formatting
-              run: chmod +x node_modules/.bin/prettier.ps1 && sudo npx prettier . --write
+              run: chmod +x node_modules/.bin/prettier.cmd && sudo npx prettier . --check
     test:
         runs-on: ubuntu-latest
 

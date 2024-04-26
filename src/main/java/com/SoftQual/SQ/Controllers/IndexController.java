@@ -17,11 +17,13 @@ import org.springframework.core.io.Resource;
 public class IndexController {
 
   public static void main(String[] args) {
+      
     SpringApplication.run(IndexController.class, args);
   }
 
   @SuppressWarnings("null")
-  @GetMapping(value = { "/", "/index" })
+  @GetMapping(value = { "/",
+   "/index" })
   public ResponseEntity<Resource> index() {
     Resource resource = new ClassPathResource("static/index.html");
     return ResponseEntity.ok()
