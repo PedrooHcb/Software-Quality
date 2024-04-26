@@ -1,4 +1,4 @@
-package com.SoftQual.SQ.Controllers;
+package com.softqual.sq.controllers;
 
 import java.io.IOException;
 
@@ -17,12 +17,14 @@ import org.springframework.core.io.Resource;
 public class IndexController {
 
   public static void main(String[] args) {
+      
     SpringApplication.run(IndexController.class, args);
   }
 
   @SuppressWarnings("null")
-  @GetMapping(value = { "/", "/index" })
-  public ResponseEntity<Resource> index() throws IOException {
+  @GetMapping(value = { "/",
+   "/index" })
+  public ResponseEntity<Resource> index() {
     Resource resource = new ClassPathResource("static/index.html");
     return ResponseEntity.ok()
         .contentType(MediaType.TEXT_HTML)

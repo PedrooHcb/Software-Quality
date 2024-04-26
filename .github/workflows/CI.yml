@@ -1,44 +1,47 @@
 name: CI
 
-on:
-  [push, pull_request]
+on: [push, pull_request]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '17'
-    
-    - name: Change directory && Set permissions && Build Maven
-      run: chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+            - name: Set up JDK
+              uses: actions/setup-java@v2
+              with:
+                  distribution: 'adopt'
+                  java-version: '17'
 
-    # - name: Set permissions
-    #   run: chmod 777 ./mvnw
+            - name: Change directory && Set permissions && Build Maven
+              run: chmod 777 mvnw && ./mvnw -B verify --file pom.xml
 
-    # - name: Build Maven
-    #   run: ./mvnw -B verify --file pom.xml
-  test:
-    runs-on: ubuntu-latest
+        # - name: Set permissions
+        #   run: chmod 777 ./mvnw
 
-    needs: build
+        # - name: Build Maven
+        #   run: ./mvnw -B verify --file pom.xml
+            - name: Check Code Formatting
+              run: chmod +x node_modules/.bin/prettier && sudo npx prettier . --write
+            - name: Check Code Formatting
+              run: chmod +x node_modules/.bin/prettier.cmd && sudo npx prettier . --check
+    test:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+        needs: build
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '17'
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-    - name: Run tests
-      run: chmod 777 mvnw && ./mvnw test --file pom.xml
+            - name: Set up JDK
+              uses: actions/setup-java@v2
+              with:
+                  distribution: 'adopt'
+                  java-version: '17'
+
+            - name: Run tests
+              run: chmod 777 mvnw && ./mvnw test --file pom.xml
