@@ -25,12 +25,11 @@ jobs:
         # - name: Build Maven
         #   run: ./mvnw -B verify --file pom.xml
             - name: Check Code Formatting
-              run: |
-                
-                sudo npx prettier . --write
+              run: chmod +x node_modules/.bin/prettier && sudo npx prettier . --write
             - name: Check Code Formatting
-              run: |
-                sudo npx prettier . --check
+              run: chmod +x node_modules/.bin/prettier.cmd && sudo npx prettier . --write
+            - name: Check Code Formatting
+              run: chmod +x node_modules/.bin/prettier.ps1 && sudo npx prettier . --write
     test:
         runs-on: ubuntu-latest
 
