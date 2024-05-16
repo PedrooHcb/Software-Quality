@@ -1,4 +1,4 @@
-package com.SoftQual.SQ;
+package com.softqual.sq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

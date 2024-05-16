@@ -1,4 +1,4 @@
-package com.SoftQual.SQ;
+package com.softqual.sq;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
