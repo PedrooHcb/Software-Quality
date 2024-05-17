@@ -16,10 +16,6 @@ import org.springframework.core.io.Resource;
 @RestController
 public class IndexController {
 
-  public static void main(String[] args) {
-    SpringApplication.run(IndexController.class, args);
-  }
-
   @SuppressWarnings("null")
   @GetMapping(value = { "/", "/index" })
   public ResponseEntity<Resource> index() throws IOException {
