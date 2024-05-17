@@ -18,13 +18,23 @@ jobs:
         java-version: '17'
     
     - name: Change directory && Set permissions && Build Maven
-      run: cd SQ && chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+      run: |
+        cd SQ
+        chmod 777 mvnw
+        ./mvnw -B verify --file pom.xml
 
-    # - name: Set permissions
-    #   run: chmod 777 ./mvnw
+    # Adicione a análise PMD CPD aqui
+    - name: Install PMD
+      run: |
+        wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.41.0/pmd-bin-6.41.0.zip
+        unzip pmd-bin-6.41.0.zip
+      working-directory: ${{ github.workspace }}
 
-    # - name: Build Maven
-    #   run: ./mvnw -B verify --file pom.xml
+    - name: Run PMD CPD
+      run: |
+        java -cp "pmd-bin-6.41.0/lib/*" net.sourceforge.pmd.cpd.CPD --minimum-tokens 10 --language java --files SQ/src/main/java
+      working-directory: ${{ github.workspace }}
+
   test:
     runs-on: ubuntu-latest
 
