@@ -1,0 +1,3 @@
+Após erro na execução do build.yml, referente ao SonarCloud:
+- Corrigido o caminho do pom.xml com o comando:
+    mvn -f /home/runner/work/Software-Quality/Software-Quality/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=PedrooHcb_Software-Quality

@@ -1,0 +1,28 @@
+{
+    "name": "software-quality",
+    "version": "1.0.0",
+    "description": "Projeto para uso na disciplina de Qualidade de Software",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PedrooHcb/Software-Quality.git"
+    },
+    "keywords": [
+        "qualidade"
+    ],
+    "author": "Pedro Barros",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/PedrooHcb/Software-Quality/issues"
+    },
+    "homepage": "https://github.com/PedrooHcb/Software-Quality#readme",
+    "devDependencies": {
+        "prettier": "3.2.5"
+    }
+}

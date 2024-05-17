@@ -1,4 +1,0 @@
-Documentação minimamente necessária.
-
--Pipelines
-CI.yml: Realize teste simples a cada pull request na main.
