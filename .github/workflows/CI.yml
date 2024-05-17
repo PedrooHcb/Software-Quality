@@ -1,47 +1,54 @@
 name: CI
 
 on: [push, pull_request]
+on: [push, pull_request]
 
 jobs:
     build:
         runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-            - name: Set up JDK
-              uses: actions/setup-java@v2
-              with:
-                  distribution: 'adopt'
-                  java-version: '17'
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "17"
 
-            - name: Change directory && Set permissions && Build Maven
-              run: chmod 777 mvnw && ./mvnw -B verify --file pom.xml
+      - name: Change directory && Set permissions && Build Maven
+        run: |
+          cd SQ
+          chmod 777 mvnw
+          ./mvnw -B verify --file pom.xml
 
-        # - name: Set permissions
-        #   run: chmod 777 ./mvnw
+      # Adicione a análise PMD CPD aqui
+      - name: Install PMD
+        run: |
+          wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.41.0/pmd-bin-6.41.0.zip
+          unzip pmd-bin-6.41.0.zip
+        working-directory: ${{ github.workspace }}
 
-        # - name: Build Maven
-        #   run: ./mvnw -B verify --file pom.xml
-            - name: Check Code Formatting
-              run: chmod +x node_modules/.bin/prettier && sudo npx prettier . --write
-            - name: Check Code Formatting
-              run: chmod +x node_modules/.bin/prettier.cmd && sudo npx prettier . --check
-    test:
-        runs-on: ubuntu-latest
+      - name: Run PMD CPD
+        run: |
+          java -cp "pmd-bin-6.41.0/lib/*" net.sourceforge.pmd.cpd.CPD --minimum-tokens 10 --language java --files SQ/src/main/java
+        working-directory: ${{ github.workspace }}
+
+  test:
+    runs-on: ubuntu-latest
 
         needs: build
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-            - name: Set up JDK
-              uses: actions/setup-java@v2
-              with:
-                  distribution: 'adopt'
-                  java-version: '17'
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "17"
 
-            - name: Run tests
-              run: chmod 777 mvnw && ./mvnw test --file pom.xml
+      - name: Run tests
+        run: cd SQ && chmod 777 mvnw && ./mvnw test --file pom.xml

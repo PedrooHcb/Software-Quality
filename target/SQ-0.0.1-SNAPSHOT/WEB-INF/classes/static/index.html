@@ -9,15 +9,15 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .calculator {
-            width: 300px;
+            width: 25em;
             margin: 0 auto;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 1em;
         }
 
         .calculator input[type="button"] {
-            width: 70px;
-            height: 40px;
+            width: 7em;
+            height: 4em;
             margin: 5px;
         }
     </style>
@@ -29,7 +29,7 @@
             <div class="col-md-6 mt-5">
                 <div class="calculator bg-warning ">
                     <input type="text" id="display" class="form-control mb-2" readonly th:value="${displayValue}">
-                    <div class="row my-1">
+                    <div class="row my-3">
                         <div class="col">
                             <button class="btn btn-secondary btn-block" onclick="appendToDisplay('1')">1</button>
                         </div>
@@ -43,7 +43,7 @@
                             <button class="btn btn-dark btn-block" onclick="appendToDisplay('+')">+</button>
                         </div>
                     </div>
-                    <div class="row mb-1">
+                    <div class="row mb-3">
                         <div class="col">
                             <button class="btn btn-secondary btn-block" onclick="appendToDisplay('4')">4</button>
                         </div>
@@ -57,7 +57,7 @@
                             <button class="btn btn-dark btn-block" onclick="appendToDisplay('-')">-</button>
                         </div>
                     </div>
-                    <div class="row mb-1">
+                    <div class="row mb-3">
                         <div class="col">
                             <button class="btn btn-secondary btn-block" onclick="appendToDisplay('7')">7</button>
                         </div>
