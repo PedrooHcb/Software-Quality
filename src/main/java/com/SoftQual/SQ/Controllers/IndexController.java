@@ -1,8 +1,7 @@
-package com.SoftQual.SQ.Controllers;
+package com.softqual.sq.controllers;
 
 import java.io.IOException;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
@@ -12,13 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.core.io.Resource;
 
-@SpringBootApplication
 @RestController
 public class IndexController {
 
   @SuppressWarnings("null")
   @GetMapping(value = { "/", "/index" })
-  public ResponseEntity<Resource> index() throws IOException {
+  public ResponseEntity<Resource> index(){
     Resource resource = new ClassPathResource("static/index.html");
     return ResponseEntity.ok()
         .contentType(MediaType.TEXT_HTML)
