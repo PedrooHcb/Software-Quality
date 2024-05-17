@@ -1,119 +1,206 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculator</title>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .calculator {
+                width: 300px;
+                margin: 0 auto;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .calculator {
-            width: 25em;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-            padding: 1em;
-        }
+            .calculator input[type='button'] {
+                width: 70px;
+                height: 40px;
+                margin: 5px;
+            }
+        </style>
+    </head>
 
-        .calculator input[type="button"] {
-            width: 7em;
-            height: 4em;
-            margin: 5px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 mt-5">
-                <div class="calculator bg-warning ">
-                    <input type="text" id="display" class="form-control mb-2" readonly th:value="${displayValue}">
-                    <div class="row my-3">
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('1')">1</button>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 mt-5">
+                    <div class="calculator bg-warning">
+                        <input
+                            type="text"
+                            id="display"
+                            class="form-control mb-2"
+                            readonly
+                            th:value="${displayValue}"
+                        />
+                        <div class="row my-1">
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('1')"
+                                >
+                                    1
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('2')"
+                                >
+                                    2
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('3')"
+                                >
+                                    3
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-dark btn-block"
+                                    onclick="appendToDisplay('+')"
+                                >
+                                    +
+                                </button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('2')">2</button>
+                        <div class="row mb-1">
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('4')"
+                                >
+                                    4
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('5')"
+                                >
+                                    5
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('6')"
+                                >
+                                    6
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-dark btn-block"
+                                    onclick="appendToDisplay('-')"
+                                >
+                                    -
+                                </button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('3')">3</button>
+                        <div class="row mb-1">
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('7')"
+                                >
+                                    7
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('8')"
+                                >
+                                    8
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('9')"
+                                >
+                                    9
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-dark btn-block"
+                                    onclick="appendToDisplay('*')"
+                                >
+                                    *
+                                </button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-dark btn-block" onclick="appendToDisplay('+')">+</button>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('4')">4</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('5')">5</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('6')">6</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-dark btn-block" onclick="appendToDisplay('-')">-</button>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('7')">7</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('8')">8</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('9')">9</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-dark btn-block" onclick="appendToDisplay('*')">*</button>
-                        </div>
-                    </div>
-                    <div class="row mb-1">
-                        <div class="col">
-                            <button class="btn btn-danger btn-block" onclick="clearDisplay()">C</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-secondary btn-block" onclick="appendToDisplay('0')">0</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-success btn-block" onclick="calculate()">=</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-dark btn-block" onclick="appendToDisplay('/')">/</button>
+                        <div class="row mb-1">
+                            <div class="col">
+                                <button
+                                    class="btn btn-danger btn-block"
+                                    onclick="clearDisplay()"
+                                >
+                                    C
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-secondary btn-block"
+                                    onclick="appendToDisplay('0')"
+                                >
+                                    0
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-success btn-block"
+                                    onclick="calculate()"
+                                >
+                                    =
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button
+                                    class="btn btn-dark btn-block"
+                                    onclick="appendToDisplay('/')"
+                                >
+                                    /
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        function appendToDisplay(value) {
-            var display = document.getElementById('display');
-            display.value += value;
-        }
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            function appendToDisplay(value) {
+                var display = document.getElementById('display')
+                display.value += value
+            }
 
-        function clearDisplay() {
-            var display = document.getElementById('display');
-            display.value = '';
-        }
+            function clearDisplay() {
+                var display = document.getElementById('display')
+                display.value = ''
+            }
 
-        function calculate() {
-            var display = document.getElementById('display');
-            var result = eval(display.value);
-            display.value = result;
-        }
-        /*]]>*/
-    </script>
-</body>
-
+            function calculate() {
+                var display = document.getElementById('display')
+                var result = eval(display.value)
+                display.value = result
+            }
+            /*]]>*/
+        </script>
+    </body>
 </html>

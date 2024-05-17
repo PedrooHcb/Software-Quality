@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.SoftQual.SQ.SqApplicationTests
+Test set: com.softqual.sq.SqApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.28 s -- in com.SoftQual.SQ.SqApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.790 s -- in com.softqual.sq.SqApplicationTests

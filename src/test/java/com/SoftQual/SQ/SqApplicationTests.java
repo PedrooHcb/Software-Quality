@@ -1,4 +1,4 @@
-package com.SoftQual.SQ;
+package com.softqual.sq;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

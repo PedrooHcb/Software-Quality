@@ -1,4 +1,4 @@
-package com.softqual.sq.controllers;
+package com.softqual.sq.Controllers;
 
 import java.io.IOException;
 
