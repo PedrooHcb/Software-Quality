@@ -1,3 +1,3 @@
-com\softqual\sq\ServletInitializer.class
-com\softqual\sq\SqApplication.class
-com\softqual\sq\controllers\IndexController.class
+com\Softqual\SQ\SqApplication.class
+com\Softqual\SQ\controllers\IndexController.class
+com\Softqual\SQ\ServletInitializer.class
