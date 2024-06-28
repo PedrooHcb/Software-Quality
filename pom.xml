@@ -85,6 +85,14 @@
             <artifactId>maven-pmd-plugin</artifactId>
             <version>3.22.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs -->
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>4.8.5</version>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -113,13 +121,11 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.0.4</version>
+                <version>4.7.3.0</version>
                 <configuration>
-                    <effort>Max</effort>
-                    <threshold>medium</threshold>
+                    <effort>Max</effort> <!-- Pode ser Min, Default ou Max -->
+                    <threshold>medium</threshold> <!-- Pode ser low, medium, high ou experimental -->
                     <failOnError>true</failOnError>
-                    <includeFilterFile>${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
-                    <excludeFilterFile>${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
                     <plugins>
                         <plugin>
                             <groupId>com.h3xstream.findsecbugs</groupId>
@@ -128,6 +134,13 @@
                         </plugin>
                     </plugins>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>spotbugs</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
