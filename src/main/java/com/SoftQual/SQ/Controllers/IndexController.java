@@ -17,13 +17,11 @@ import org.springframework.core.io.Resource;
 public class IndexController {
 
   public static void main(String[] args) {
-      
     SpringApplication.run(IndexController.class, args);
   }
 
   @SuppressWarnings("null")
-  @GetMapping(value = { "/",
-   "/index" })
+  @GetMapping(value = { "/", "/index" })
   public ResponseEntity<Resource> index() {
     Resource resource = new ClassPathResource("static/index.html");
     return ResponseEntity.ok()
@@ -46,9 +44,18 @@ public class IndexController {
         return num1 * num2;
       case "divide":
         if (num2 == 0) {
-          throw new IllegalArgumentException("Cannot divid by zero");
+          throw new IllegalArgumentException("Cannot divide by zero");
         }
         return num1 / num2;
+      case "custom":
+        try {
+          String code = "return " + num1 + operation + num2 + ";";
+          javax.script.ScriptEngineManager manager = new javax.script.ScriptEngineManager();
+          javax.script.ScriptEngine engine = manager.getEngineByName("JavaScript");
+          return (double) engine.eval(code);
+        } catch (javax.script.ScriptException e) {
+          throw new IllegalArgumentException("Erro ao executar operação personalizada");
+        }
       default:
         throw new IllegalArgumentException("Invalid Operation!");
     }
